@@ -1,41 +1,47 @@
 <script>
 export default {
-  name: 'Multiselect',
+  name: "Multiselect",
   props: {
     options: {
-      type : Array,
+      type: Array,
       default: () => [],
-      required: true,
+      required: true
     },
     placeholder: {
       type: String,
-      default: 'Je suis le placeholder',
-      required: false,
+      default: "Je suis le placeholder",
+      required: false
     }
   },
   data() {
-    return {
-
-    }
+    return { state: false };
   },
-  computed: {
-
-  },
+  computed: {},
   methods: {
     onSelectPress() {
-      alert('Oh, ça alors, tu m\'as cliqué dessus !')
+      if (this.state) {
+        this.state = false;
+      } else {
+        this.state = true;
+      }
     }
   }
-}
+};
 </script>
 
 <template>
   <div class="multiselect" @click="onSelectPress">
-    {{ placeholder }}
+    <div class="multiselect_tags">{{ placeholder }}</div>
+    <div class="multiselect_content">
+      <ul v-if="state">
+        <li v-for="item in options" :key="options.indexOf(item)">{{ item }}</li>
+      </ul>
+    </div>
+
     <!-- 
       Tout est à construire ici...
       Bonne chance 😉
-     -->
+    -->
   </div>
 </template>
 
@@ -46,11 +52,20 @@ export default {
   border-radius: 5px;
   border: 1px solid black;
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 10px;
 
+  .multiselect_content ul {
+    list-style-type: none;
+  }
+
+  .multiselect_content li {
+    padding-bottom: 10%;
+  }
+
   &:hover {
-    cursor:pointer;
+    cursor: pointer;
   }
 }
 </style>

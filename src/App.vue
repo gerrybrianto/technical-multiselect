@@ -1,22 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img alt="Vue logo" src="./assets/logo.png" />
     <div class="form">
       <small>Choisissez une moto:</small>
       <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-      <Multiselect :options="selectOptions" placeholder="Choisissez une moto"/>
+      <Multiselect :options="selectOptions" placeholder="Choisissez une moto" />
     </div>
-    
   </div>
 </template>
 
 <script>
-import Multiselect from './components/Multiselect.vue'
+import Multiselect from "./components/Multiselect.vue";
 
-const MultiselectOptions = ['Suzuki GSXR 1000', 'Yamaha MT07', 'Yamaha MT09', 'Kawasaki Z1000', 'BMW K1200S'];
+const MultiselectOptions = [
+  "Suzuki GSXR 1000",
+  "Yamaha MT07",
+  "Yamaha MT09",
+  "Kawasaki Z1000",
+  "BMW K1200S"
+];
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Multiselect
   },
@@ -25,7 +30,7 @@ export default {
       return MultiselectOptions;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -44,5 +49,4 @@ export default {
     margin: auto;
   }
 }
-
 </style>
