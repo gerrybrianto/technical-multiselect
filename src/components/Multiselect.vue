@@ -33,7 +33,7 @@ export default {
     },
 
     onOptionsPress(item) {
-      console.log("Option " + item + typeof item);
+      console.log("Option " + item + " " + typeof item);
       this.state = false;
       this.addTags(item);
     },
@@ -49,7 +49,7 @@ export default {
 
     removeTags(tagIndex) {
       if (typeof tagIndex === "number") {
-        if(!this.state){
+        if (!this.state) {
           this.state = true;
         }
         this.options.unshift(this.tags[tagIndex]);
@@ -65,13 +65,13 @@ export default {
 <template>
   <div class="multiselect">
     <div @click="onSelectPress" class="multiselect_tags">
-      <ul v-if="tags.length != 0">
+      <input name type="text" :placeholder.sync="placeholder" v-model="placeholder" />
+      <ul>
         <li v-for="item in tags " :key="tags.indexOf(item) * 10">
           {{ item }}
           <button @click="removeTags(tags.indexOf(item))">X</button>
         </li>
       </ul>
-      <span v-else>{{ placeholder }}</span>
     </div>
     <div class="multiselect_content">
       <ul v-if="state">
