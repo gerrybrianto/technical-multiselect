@@ -2,9 +2,9 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="form">
-      <small>Choisissez une moto:</small>
+      <small>Choisissez une moto: </small>
       <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-      <Multiselect :options="selectOptions" placeholder="Choisissez une moto" />
+      <Multiselect :options="selectOptions" placeholder="Choisissez une moto" :tags="[]"/>
     </div>
   </div>
 </template>
